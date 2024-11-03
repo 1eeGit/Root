@@ -1,5 +1,8 @@
 import React from 'react';
 
+/** 
+ * 
+ */
 function Home() {
   return (
     <div style={{ padding: '2em', textAlign: 'center' }}>
