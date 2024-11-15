@@ -1,23 +1,36 @@
 import React from 'react';
-import './Card.css'; 
+import './Card.css';
 
+function flipCard(title, progress, image) {
+  return (
+    <div className="card-container">
+      <div className="card custom-card">
+        {/* Front of the Card */}
+        <div className="card-front">
+          <img src={image} alt="" className="card-image" />
+          <h3>{title}</h3>
+        </div>
 
-function flipCard(title, question, image, answer) {
-    return (
-        <div className="card-container">
-          <div className="card custom-card">
-            <div className="card-front">
-                <h2>{title}</h2>
-                <h1>{question}</h1>   
-                <img src={image} alt="" className="card-image" style={{ width: '60px', height: '60px' }} />
-            </div>
-            
-            <div className="card-back">
-              <p>{answer}</p>
+        {/* Back of the Card */}
+        <div className="card-back">
+          <h4>Progress</h4>
+          {/* Bootstrap Progress Bar */}
+          <div className="progress" style={{ height: '20px' }}>
+            <div
+              className="progress-bar bg-success"
+              role="progressbar"
+              style={{ width: `${progress}%` }}
+              aria-valuenow={progress}
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {progress}%
             </div>
           </div>
         </div>
-      );
-    }
+      </div>
+    </div>
+  );
+}
 
 export default flipCard;

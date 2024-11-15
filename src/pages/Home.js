@@ -9,8 +9,8 @@ function Home() {
     <p>Hello user, let's start from what we did last time...</p>
     
     <div style={{ marginTop: '2em' }}>
-        <Link to="/python" className="btn btn-secondary">
-          Go to Python
+        <Link to="/Records" className="btn btn-secondary">
+          Go to Assignments...
         </Link>
       </div>
      
