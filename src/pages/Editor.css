@@ -1,0 +1,12 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .output {
+    background-color: #f8f9fa;
+    padding: 1em;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  

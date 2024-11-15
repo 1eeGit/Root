@@ -36,7 +36,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #e1fce2;
+  background-color: #ffffff;
 }
 
 /* Image styling */
@@ -52,8 +52,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #e8f4ff;
-  color: #fff;
+  background-color: #faeaf4;
+  color: #0a0a0a;
   transform: rotateY(180deg); /* Rotate the back face initially */
   border-radius: 8px;
   padding: 20px;

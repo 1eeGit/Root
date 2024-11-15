@@ -8,6 +8,9 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import UserCenter from './pages/userCenter';
 import LandingPage from './pages/landingPage';
+import Python from './pages/Python';
+import Editor from './pages/Editor';
+import TestEnv from './components/TestEnv';
 
 function App() {
   return (
@@ -19,7 +22,11 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/userCenter" element={<UserCenter />} />
+        <Route path="/python" element={<Python />} />
+        <Route path="/editor" element={<Editor />} />
       </Routes>
+
+      {/*<TestEnv /> */}
     </div>
   );
 }

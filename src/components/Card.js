@@ -1,18 +1,15 @@
 import React from 'react';
-import './card.css'; 
+import './Card.css'; 
 
-/** 
- * flip card 
- */
 
 function flipCard(title, question, image, answer) {
     return (
         <div className="card-container">
           <div className="card custom-card">
             <div className="card-front">
-                <h1>{title}</h1>
-                <p>{question}</p>   
-                <img src={image} alt="" className="card-image" />
+                <h2>{title}</h2>
+                <h1>{question}</h1>   
+                <img src={image} alt="" className="card-image" style={{ width: '60px', height: '60px' }} />
             </div>
             
             <div className="card-back">
