@@ -25,7 +25,6 @@ function App() {
         <Route path="/editor" element={<Editor />} />
         <Route path="/records" element={<Records />} />
         <Route path="/coding/:assignmentId" element={<Solution />} />
-        <Route path="/coding/:assignmentId" element={<Coding />} />
       </Routes>
 
       {/*<TestEnv /> */}

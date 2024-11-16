@@ -7,7 +7,7 @@ function flipCard(title, progress, image) {
       <div className="card custom-card">
         {/* Front of the Card */}
         <div className="card-front">
-          <img src={image} alt="" className="card-image" />
+          <img src={image} alt="" className="card-image"  style={{ width: '60px', height: '60px' }}/>
           <h3>{title}</h3>
         </div>
 
