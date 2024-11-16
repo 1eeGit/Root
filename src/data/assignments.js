@@ -1,7 +1,7 @@
 const assignments = [
   {
     id: "assignment_1",
-    title: "Python",
+    title: "Python: print 'Hello World' to console",
     languageId: 71,
     solution: "print('Hello World')",
     expected_output: "Hello World\n",
@@ -10,7 +10,7 @@ const assignments = [
   },
   {
     id: "assignment_2",
-    title: "JavaScript Functions",
+    title: "JavaScript: print 'Hello World' to console",
     languageId: 63,
     solution: "console.log('Hello World');",
     expected_output: "Hello World\n",
@@ -19,7 +19,7 @@ const assignments = [
   },
   {
     id: "assignment_3",
-    title: "Java Classes",
+    title: "Java: print 'Hello World' to console",
     languageId: 62,
     solution: "public class Main { public static void main(String[] args) { System.out.println('Hello World'); } }",
     expected_output: "Hello World\n",

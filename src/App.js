@@ -8,7 +8,6 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import LandingPage from './pages/landingPage';
 import Editor from './pages/Editor';
-import TestEnv from './components/TestEnv';
 import Records from './pages/Records';
 import Coding from './pages/Coding';
 import Solution from './pages/Solution';

@@ -9,8 +9,9 @@ function Solution() {
   const { assignmentId } = useParams();
   const assignment = assignments.find((a) => a.id === assignmentId);
 
-  const [code, setCode] = useState(assignment ? assignment.solution : '');
+  const [code, setCode] = useState('# Write your code here...');
   const [output, setOutput] = useState('');
+  const [evaluation, setEvaluation] = useState('');
   const [loading, setLoading] = useState(false);
 
   if (!assignment) {
@@ -20,35 +21,63 @@ function Solution() {
   const handleRunCode = async () => {
     setLoading(true);
     setOutput('');
+    setEvaluation('');
+  
+    console.log("Running code:", code);
+    console.log("Assignment language ID:", assignment.languageId);
+  
+    try {
+      const result = await runCode(code, assignment.languageId);
+  
+      const codeOutput = result.stdout?.trim() || result.stderr?.trim() || 'No output';
 
-    const result = await runCode(code, assignment.languageId);
-    const expectedOutput = assignment.expected_output.trim();
-
-    if (result.stdout?.trim() === expectedOutput) {
-      setOutput('Correct Solution!');
-    } else if (result.stderr) {
-      setOutput(`Error: ${result.stderr}`);
-    } else {
-      setOutput(`Incorrect Output: Expected "${expectedOutput}", but got "${result.stdout?.trim()}"`);
+  
+      setOutput(codeOutput);
+  
+      const expectedOutput = assignment.expected_output.trim();
+      if (result.stderr) {
+        setEvaluation('❌ Execution error');
+      } else if (codeOutput === expectedOutput) {
+        setEvaluation('✅ Correct Solution!');
+      } else {
+        setEvaluation(`❌ Incorrect Solution. Expected: "${expectedOutput}"`);
+      }
+    } catch (error) {
+      console.error("Error during code execution:", error);
+      setOutput('Error running code');
+      setEvaluation('❌ Execution error');
     }
-
+  
     setLoading(false);
+  };
+
+  const handleShowSolution = () => {
+    setCode(assignment.solution);
   };
 
   return (
     <div className="coding-container">
-      <h1>{assignment.title}</h1>
+      <h1>{assignment.title}: {assignment.description}</h1>
+      
       <div className="editor-output-container">
         <div className="input-box">
           <h3>Code Editor</h3>
           <CodeMirrorEditor value={code} onChange={setCode} language="python" />
-          <button onClick={handleRunCode} disabled={loading}>
-            {loading ? 'Running...' : 'Run Code'}
-          </button>
+
+          <div className="button-container">
+            <button className="btn btn-primary" onClick={handleRunCode} disabled={loading}>
+              {loading ? 'Running...' : 'Run Code'}
+            </button>
+            <button className="btn btn-secondary" onClick={handleShowSolution}>
+              Show Solution
+            </button>
+          </div>
         </div>
+
         <div className="output-box">
           <h3>Output</h3>
           <pre>{output}</pre>
+          <h4>{evaluation}</h4>
         </div>
       </div>
     </div>

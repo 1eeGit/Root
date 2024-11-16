@@ -1,55 +1,75 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import CodeMirrorEditor from '../components/CodeMirror';
 import { runCode } from '../services/apiUsage';
-import assignments from '../data/assignments';
-import './Assignments.css';
 
 function Coding() {
-  const { assignmentId } = useParams();
-  const assignment = assignments.find((a) => a.id === assignmentId);
-
-  const [code, setCode] = useState(assignment ? assignment.solution : '');
+  const [currentCode, setCurrentCode] = useState('# Write your code here...');
   const [output, setOutput] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [evaluation, setEvaluation] = useState('');
+  const [languageId, setLanguageId] = useState(71); // Default Python
+  const [showSolution, setShowSolution] = useState(false);
 
-  if (!assignment) {
-    return <h2>Assignment not found</h2>;
-  }
+  const solution = "print('Hello World')";
+  const expectedOutput = "Hello World";
 
   const handleRunCode = async () => {
-    setLoading(true);
     setOutput('');
+    setEvaluation('');
 
-    const result = await runCode(code, assignment.languageId);
-    const expectedOutput = assignment.expected_output.trim();
+    const result = await runCode(currentCode, languageId);
+    const codeOutput = result.stdout?.trim() || result.stderr?.trim() || 'No output';
 
-    if (result.stdout?.trim() === expectedOutput) {
-      setOutput('Correct Solution!');
-    } else if (result.stderr) {
-      setOutput(`Error: ${result.stderr}`);
+    setOutput(codeOutput);
+
+    if (codeOutput === expectedOutput) {
+      setEvaluation('✅ Correct Solution!');
     } else {
-      setOutput(`Incorrect Output: Expected "${expectedOutput}", but got "${result.stdout?.trim()}"`);
+      setEvaluation(`❌ Incorrect Solution. Expected: "${expectedOutput}"`);
     }
+  };
 
-    setLoading(false);
+  const handleShowSolution = () => {
+    setCurrentCode(solution);
+    setShowSolution(true);
   };
 
   return (
-    <div className="coding-container">
-      <h1>{assignment.title}</h1>
-      <div className="editor-output-container">
-        <div className="input-box">
-          <h3>Code Editor</h3>
-          <CodeMirrorEditor value={code} onChange={setCode} language="python" />
-          <button onClick={handleRunCode} disabled={loading}>
-            {loading ? 'Running...' : 'Run Code'}
-          </button>
-        </div>
-        <div className="output-box">
-          <h3>Output</h3>
-          <pre>{output}</pre>
-        </div>
+    <div className="coding-page">
+      <h1>Coding Assignments</h1>
+
+      <div className="select-container">
+        <label>Select Language:</label>
+        <select
+          value={languageId}
+          onChange={(e) => setLanguageId(parseInt(e.target.value))}
+        >
+          <option value="71">Python</option>
+          <option value="63">JavaScript</option>
+          <option value="62">Java</option>
+        </select>
+      </div>
+
+      <div className="editor-container">
+        <CodeMirrorEditor
+          value={currentCode}
+          onChange={setCurrentCode}
+          currentLanguage={languageId === 71 ? 'python' : 'javascript'}
+        />
+      </div>
+
+      <div className="button-container">
+        <button className="btn btn-primary" onClick={handleRunCode}>
+          Run Code
+        </button>
+        <button className="btn btn-secondary" onClick={handleShowSolution}>
+          Show Solution
+        </button>
+      </div>
+
+      <div className="output-container">
+        <h3>Output:</h3>
+        <pre>{output}</pre>
+        <h4>{evaluation}</h4>
       </div>
     </div>
   );
