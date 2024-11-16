@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Instruction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+**ROOT** is an interactive coding assignment server-less webpage with instant feedback and an automatic grading function, with the possibility of extending the platform into educational applications.
 
-In the project directory, you can run:
 
-### `npm start`
+## Three main pages:
+student login page, choose the course you're working with
+coding assignments with an inbox
+auto evaluation with feedback
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Third-party libraries:
+- For style purposes: Bootstrap
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- For functionality purposes: CodeMirror
 
-### `npm test`
+## External API:
+- JUDGE0 : for code evaluation, with 50 free usages per day, it would show an 'Execution error' if the usage is over the limit.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to run the project:
+- Clone the repository
+- Navigate to the project directory
+- `npm install`
+- `npm start`
+- Open `http://localhost:3000/`
 
-### `npm run build`
+## How to use the project:
+- `login(landing)` page: Note that the login page is not fully implemented, the password and username will not be checked now.
+![Screenshot 2024-11-16 175204](https://github.com/user-attachments/assets/a0374a5b-62db-464e-93cc-e7ad66f9d75c)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `Home` page: Go to the `Record`.
+![Screenshot 2024-11-16 175210](https://github.com/user-attachments/assets/2fbbd8ab-a9eb-4d22-92fd-b1bf29b85a62)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `About` page: a short description of root.
+  ![Screenshot 2024-11-16 175108](https://github.com/user-attachments/assets/ae0c5433-f7b6-48b7-b90f-dff02f31b0af)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `Contact` page: allows users to send messages (not implemented yet).
+  ![Screenshot 2024-11-16 175151](https://github.com/user-attachments/assets/e0bf86ab-b949-48d1-a102-b3bb2e57dd48)
 
-### `npm run eject`
+- `Record` page: Choose the assignment you want to work on, including Python, Java, and JavaScript.
+  ![Screenshot 2024-11-16 175116](https://github.com/user-attachments/assets/b5328c5f-6cfa-44fa-b5dc-2c9410d8b94d)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    - `Coding(Assignments)` in `Records`: interactive coding editor, compile the input and compare the output with the expected output saved in assignment.js.
+      ![Screenshot 2024-11-16 175127](https://github.com/user-attachments/assets/1e3416b8-323d-44fe-aad9-7bfe80277254)

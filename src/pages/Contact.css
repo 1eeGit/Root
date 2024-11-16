@@ -1,0 +1,47 @@
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: left;
+  }
+  
+  .contact-container h1 {
+    color: #007bff;
+    margin-bottom: 1.5em;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5em;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: #333;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    min-height: 100px;
+  }
+  
+  .submit-button {
+    padding: 0.5em 1.5em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  

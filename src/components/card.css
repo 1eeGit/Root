@@ -1,61 +1,36 @@
-
-/* Card container for 3D perspective */
 .card-container {
-  perspective: 1000px; /* Creates a 3D space */
-  width: 300px;
-  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
 }
 
-/* Style the card */
 .custom-card {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 150px;
   position: relative;
-  transition: transform 0.6s;
   transform-style: preserve-3d;
+  transition: transform 0.6s ease;
 }
 
-/* Rotate the card on hover */
-.card-container:hover .custom-card {
+.flipped .custom-card {
   transform: rotateY(180deg);
 }
 
-/* Front and back face of the card */
 .card-front,
 .card-back {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Hide the back when front is visible */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Front face styling */
-.card-front {
+  backface-visibility: hidden;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
-}
-
-/* Image styling */
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  align-items: center;
+  border: 1px solid #ddd;
   border-radius: 8px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Back face styling */
 .card-back {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #faeaf4;
-  color: #0a0a0a;
-  transform: rotateY(180deg); /* Rotate the back face initially */
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
+  transform: rotateY(180deg);
 }
